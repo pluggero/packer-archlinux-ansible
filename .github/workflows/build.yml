@@ -14,7 +14,7 @@ env:
   PROVIDER: virtualbox
   ARCHITECTURE: amd64
   VBOX_BRANCH: "7.1"
-  VBOX_VERSION: "7.1.6"
+  VBOX_VERSION: "7.1.8"
   VBOX_BUILD_ID: "167084"
   VBOX_DEB_DISTRO: "Ubuntu"
   VBOX_DEB_CODENAME: "noble"
