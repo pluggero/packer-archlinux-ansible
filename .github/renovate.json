@@ -1,15 +1,26 @@
 {
-  "extends": ["config:best-practices", ":disableRateLimiting"],
-  "enabledManagers": ["github-actions", "pip_requirements", "custom.regex", "ansible-galaxy"],
+  "extends": [
+    "config:best-practices",
+    ":disableRateLimiting"
+  ],
+  "enabledManagers": [
+    "github-actions",
+    "pip_requirements",
+    "custom.regex",
+    "ansible-galaxy"
+  ],
   "ansible-galaxy": {
-    "fileMatch": [
-      "^ansible/requirements\\.ya?ml$"
+    "managerFilePatterns": [
+      "/^ansible/requirements\\.ya?ml$/"
     ]
   },
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": ["^ansible/playbooks/main\\.yml$", "^.github/workflows/build\\.yml$"],
+      "managerFilePatterns": [
+        "/^ansible/playbooks/main\\.yml$/",
+        "/^.github/workflows/build\\.yml$/"
+      ],
       "matchStrings": [
         "virtualbox_guest_virtualbox_version:\\s+\"(?<currentValue>[\\d\\.]+)\"",
         "VBOX_VERSION:\\s+\"(?<currentValue>[\\d\\.]+)\""
@@ -27,7 +38,9 @@
   },
   "packageRules": [
     {
-      "matchPackageNames": ["virtualbox"],
+      "matchPackageNames": [
+        "virtualbox"
+      ],
       "groupName": "Update Virtualbox version"
     }
   ]
