@@ -1,0 +1,34 @@
+{
+  "extends": ["config:best-practices", ":disableRateLimiting"],
+  "enabledManagers": ["github-actions", "pip_requirements", "custom.regex", "ansible-galaxy"],
+  "ansible-galaxy": {
+    "fileMatch": [
+      "^ansible/requirements\\.ya?ml$"
+    ]
+  },
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": ["^ansible/playbooks/main\\.yml$", "^.github/workflows/build\\.yml$"],
+      "matchStrings": [
+        "virtualbox_guest_virtualbox_version:\\s+\"(?<currentValue>[\\d\\.]+)\"",
+        "VBOX_VERSION:\\s+\"(?<currentValue>[\\d\\.]+)\""
+      ],
+      "datasourceTemplate": "custom.virtualbox",
+      "depNameTemplate": "virtualbox",
+      "versioningTemplate": "semver"
+    }
+  ],
+  "customDatasources": {
+    "virtualbox": {
+      "defaultRegistryUrlTemplate": "https://download.virtualbox.org/virtualbox/LATEST-STABLE.TXT",
+      "format": "plain"
+    }
+  },
+  "packageRules": [
+    {
+      "matchPackageNames": ["virtualbox"],
+      "groupName": "Update Virtualbox version"
+    }
+  ]
+}
