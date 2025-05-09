@@ -28,12 +28,29 @@
       "datasourceTemplate": "custom.virtualbox",
       "depNameTemplate": "virtualbox",
       "versioningTemplate": "semver"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/^packer/variables.auto.pkrvars\\.hcl$/"
+      ],
+      "matchStrings": [
+        "vm_guest_os_version\\s+=\\s+\"(?<currentValue>[\\d\\.]+)\""
+      ],
+      "datasourceTemplate": "custom.archlinux-installer",
+      "depNameTemplate": "archlinux-installer",
+      "versioningTemplate": "loose",
+      "extractVersionTemplate": "archlinux-(?<version>.+)-x86_64\\.iso"
     }
   ],
   "customDatasources": {
     "virtualbox": {
       "defaultRegistryUrlTemplate": "https://download.virtualbox.org/virtualbox/LATEST-STABLE.TXT",
       "format": "plain"
+    },
+    "archlinux-installer": {
+      "defaultRegistryUrlTemplate": "https://ftp.halifax.rwth-aachen.de/archlinux/iso/latest/",
+      "format": "html"
     }
   },
   "packageRules": [
