@@ -1,4 +1,6 @@
 #!/bin/bash
+# Fail on error
+set -euo pipefail
 # Change to the repository root directory
 cd "$(dirname "$0")"/..
 
