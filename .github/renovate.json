@@ -14,6 +14,7 @@
       "/^ansible/requirements\\.ya?ml$/"
     ]
   },
+  "assignees": ["pluggero"],
   "customManagers": [
     {
       "customType": "regex",
