@@ -4,7 +4,7 @@
   gather_facts: true
 
   vars:
-    virtualbox_guest_virtualbox_version: "7.1.8"
+    virtualbox_guest_virtualbox_version: "7.1.10"
     virtualbox_guest_reboot: false
     common_pkgs:
       pacman:
