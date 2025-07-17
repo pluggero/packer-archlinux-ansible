@@ -16,7 +16,7 @@ env:
   VBOX_BRANCH: "7.1"
   VBOX_VERSION: "7.1.12"
   # The build ID can be found in the URL of the VirtualBox iso file: https://download.virtualbox.org/virtualbox/
-  VBOX_BUILD_ID: "169112"
+  VBOX_BUILD_ID: "169651"
   VBOX_DEB_DISTRO: "Ubuntu"
   VBOX_DEB_CODENAME: "noble"
 
