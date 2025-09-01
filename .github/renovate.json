@@ -3,6 +3,19 @@
     "config:best-practices",
     ":disableRateLimiting"
   ],
+  "automerge": false,
+  "automergeType": "pr",
+  "packageRules": [
+    {
+      "matchManagers": ["github-actions", "pip_requirements"],
+      "automerge": true,
+      "automergeType": "pr"
+    },
+    {
+      "matchManagers": ["custom.regex", "ansible-galaxy"],
+      "automerge": false
+    }
+  ],
   "enabledManagers": [
     "github-actions",
     "pip_requirements",
@@ -53,13 +66,5 @@
       "defaultRegistryUrlTemplate": "https://ftp.halifax.rwth-aachen.de/archlinux/iso/latest/",
       "format": "html"
     }
-  },
-  "packageRules": [
-    {
-      "matchPackageNames": [
-        "virtualbox"
-      ],
-      "groupName": "Update Virtualbox version"
-    }
-  ]
+  }
 }
